@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:session_one/pages/page.stack.dart';
-import 'package:session_one/pages/page_grid.dart';
-import 'package:session_one/pages/page_list.dart';
-import 'package:session_one/pages/page_two.dart';
-
-import 'pages/page_one.dart';
+import 'package:flutter/services.dart';
+import 'package:session_one/pages/page_button.dart';
+import 'package:session_one/pages/page_one.dart';
+import 'package:session_one/pages/page_orientation.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PageGrid(),
+      home: const PageButton(),
     );
   }
 }

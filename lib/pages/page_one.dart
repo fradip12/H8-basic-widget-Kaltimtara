@@ -54,7 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: MediaQuery.of(context).size.width,
                 color: Colors.orange,
                 margin: const EdgeInsets.symmetric(vertical: 12.0),
-                child: const Center(child: Text('Hacktiv8')),
+                child: const Center(
+                  child: Text.rich(
+                    TextSpan(
+                      text: 'Forgot password ? ',
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: 'Klik disini',
+                          style: TextStyle(
+                            color: Colors.blue,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
