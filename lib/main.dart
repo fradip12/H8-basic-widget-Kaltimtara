@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:session_one/pages/page_button.dart';
+import 'package:session_one/config/app_router.dart';
+import 'package:session_one/pages/page_detail_resto.dart';
 import 'package:session_one/pages/page_json.dart';
-import 'package:session_one/pages/page_one.dart';
-import 'package:session_one/pages/page_orientation.dart';
-import 'package:session_one/pages/page_snackbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +24,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PageJSON(),
+      // routes: {
+      //   '/': (context) => const PageJSON(),
+      //   '/detail': (context) => const PageRestoDetail(),
+      // },
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: '/',
+      // home: const PageJSON(),
     );
   }
 }

@@ -8,8 +8,8 @@ class PageButton extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: FadeInImage.assetNetwork(
-          fadeInDuration: Duration(seconds: 3),
-          fadeOutDuration: Duration(seconds: 3),
+          fadeInDuration: const Duration(seconds: 3),
+          fadeOutDuration: const Duration(seconds: 3),
           placeholder: 'assets/600x400.png',
           image:
               'https://fastly.picsum.photos/id/349/200/300.jpg?hmac=gEjHZbjuKtdD2GOM-qQtuaA95TCvDUs6iVvKraQ94nU',
