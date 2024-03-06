@@ -3,7 +3,7 @@
         "name": "Kampoeng Bamboe Restoran dan Homestay",
         "location": "Bandar Lampung",
         "address": "Jl.  Griya Utama No. 57, Way Halim",
-        "imageUrl": "assets/images/kampoeng-bamboe.png",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.3",
         "mapUrl": "https://goo.gl/maps/Byjhnsnur6autx2C8",
         "phone": "0721704455",
@@ -29,7 +29,7 @@
         "name": "Randu Resto",
         "location": "Bandar Lampung",
         "address": "2a, Jl. Kamboja No.1, Tanjung Karang Timur",
-        "imageUrl": "assets/images/randu-resto.jpg",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.5",
         "mapUrl": "https://goo.gl/maps/Vmncc16yhzCiyUCt9",
         "phone": "0721256680",
@@ -55,7 +55,7 @@
         "name": "Nasi Uduk Toha",
         "location": "Bandar Lampung",
         "address": "Jl. Kartini No.105, Tanjung Karang Pusat",
-        "imageUrl": "assets/images/toha.jpg",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.4",
         "mapUrl": "https://goo.gl/maps/yrz2oK1NvzLuykMD9",
         "phone": "0721251520",
@@ -81,7 +81,7 @@
         "name": "Pindang Meranjat Liwa",
         "location": "Lampung Barat",
         "address": "Ps. Liwa, Balik Bukit",
-        "imageUrl": "assets/images/pindang.JPG",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.5",
         "mapUrl": "https://goo.gl/maps/ABgKADKTGRW8kSG19",
         "phone": "081278916691",
@@ -107,7 +107,7 @@
         "name": "Rumah Makan Pondok Bambu Sabar Beghak",
         "location": "Lampung Barat",
         "address": "Jl. Jend. Sudirman, Balik Bukit",
-        "imageUrl": "assets/images/sabah-beghak.jpg",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.3",
         "mapUrl": "https://goo.gl/maps/63D17PCM1ZbvYZya9",
         "phone": "085377413398",
@@ -133,7 +133,7 @@
         "name": "Rumah Makan Siang Malam",
         "location": "Lampung Selatan",
         "address": "Jl. Lintas Sumatera Km 6, Penengahan",
-        "imageUrl": "assets/images/siang-malam.jpg",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.0",
         "mapUrl": "https://goo.gl/maps/qMQRsuGhmrxAGXFg9",
         "phone": "072733444",
@@ -159,7 +159,7 @@
         "name": "Rumah Makan Hikmah",
         "location": "Lampung Timur",
         "address": "Desa Teluk Dalem, Mataram Baru",
-        "imageUrl": "assets/images/hikmah.png",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.1",
         "mapUrl": "https://goo.gl/maps/VciARcqiCPga2sXf7",
         "phone": "082372997776",
@@ -185,7 +185,7 @@
         "name": "Wisata Kuliner Dam Raman",
         "location": "Lampung Timur",
         "address": "Jl. IV, Wono Sari, Pekalongan",
-        "imageUrl": "assets/images/dam-raman.JPG",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "-",
         "mapUrl": "https://goo.gl/maps/WJdYvZNpLNcPEFxT9",
         "phone": "",
@@ -211,7 +211,7 @@
         "name": "Dermaga Bom Kalianda",
         "location": "Lampung Selatan",
         "address": "-",
-        "imageUrl": "assets/images/dermaga-bom.jpg",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "-",
         "mapUrl": "https://goo.gl/maps/p9WvknrsZznaezxq7",
         "phone": "085267541089",
@@ -237,10 +237,26 @@
         "name": "Pasar Kuliner Liwa",
         "location": "Lampung Barat",
         "address": "Kubu Perahu, Balik Bukit",
-        "imageUrl": "assets/images/pasar-liwa.jpg",
+        "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/41/94/a9/bar-shot-of-il-mare.jpg?w=600&h=-1&s=1",
         "rating": "4.0",
         "mapUrl": "https://goo.gl/maps/7j4dG6LF3Z5iRqgv5",
         "phone": "",
-        "menus": []
+        "menus": [
+            {
+                "menu": "Pindang Bandeng",
+                "price": "28.000",
+                "imageUrl": "https://asset.kompas.com/crops/5bC2ugvFO9QasnVVj3qMsuOvbTk=/0x206:360x446/750x500/data/photo/2020/08/14/5f36a00248ba1.jpeg"
+            },
+            {
+                "menu": "Udang Goreng Tepung",
+                "price": "24.000",
+                "imageUrl": "https://asset.kompas.com/crops/9bN7qNczvMfnIbWWdWcmcaGFaHk=/87x0:1164x718/750x500/data/photo/2020/08/05/5f2ad8eeb889e.jpg"
+            },
+            {
+                "menu": "Tongkol Sambal",
+                "price": "26.000",
+                "imageUrl": "https://i2.wp.com/resepkoki.id/wp-content/uploads/2020/02/Resep-Sambal-Tongkol.jpg?fit=1460%2C1458&ssl=1"
+            }
+        ]
     }
 ]

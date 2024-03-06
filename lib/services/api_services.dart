@@ -12,7 +12,8 @@ Future<List<RestaurantModels>> getDataRestaurant() async {
   // Convert dari Map<String,dynamic> -> RestaurantModels
   final dataBersih = jsonDecoded.map((e) => RestaurantModels.fromJson(e));
 
-  await Future.delayed(Duration(seconds: 3));
+  // Seolah olah waiting from backend
+  // await Future.delayed(const Duration(seconds: 3));
   // dataBersih -> List
   return dataBersih.toList();
 }
