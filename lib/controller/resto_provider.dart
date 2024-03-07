@@ -27,6 +27,12 @@ class RestoProvider extends ChangeNotifier {
       state = ApiStatus.success;
       notifyListeners(); // Wajib Listener
     });
+
+    getDataRestaurant()
+        .then((value) => state = ApiStatus.success)
+        .catchError((err) {
+      state = ApiStatus.error;
+    });
   }
 
   // Action untuk select resto

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:session_one/controller/recipes_controller.dart';
 import 'package:session_one/controller/resto_provider.dart';
-import 'package:session_one/models/restaurant_models.dart';
-import 'package:session_one/pages/page_detail_resto.dart';
-import 'package:session_one/services/api_services.dart';
+import 'package:shimmer/shimmer.dart';
 
 class PageJSON extends StatefulWidget {
   const PageJSON({super.key});
@@ -16,13 +16,13 @@ class _PageJSONState extends State<PageJSON> {
   @override
   void initState() {
     super.initState();
-    final provider = Provider.of<RestoProvider>(context, listen: false);
-    provider.getDataResto();
+    final provider = Provider.of<RecipesProvider>(context, listen: false);
+    provider.getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    final restoProvider = Provider.of<RestoProvider>(context);
+    final provider = Provider.of<RecipesProvider>(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -39,117 +39,118 @@ class _PageJSONState extends State<PageJSON> {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Center(
-            child: Consumer<RestoProvider>(builder: (_, dataP, __) {
-              if (dataP.state == ApiStatus.loading) {
-                return const CircularProgressIndicator();
-              }
-              if (dataP.state == ApiStatus.success) {
-                return ListView.builder(
-                  itemCount: dataP.listResto?.length,
+            child: Consumer<RecipesProvider>(builder: (_, data, __) {
+              if (data.state == ApiStatus.loading) {
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
                   itemBuilder: (_, index) {
-                    final data = dataP.listResto![index];
-                    return GestureDetector(
-                      onTap: () {
-                        ///  Publisher Action
-                        restoProvider.selectResto(data);
-                        // Codes untuk Navigate ke pages baru
-                        Navigator.pushNamed(
-                          context,
-                          '/detail',
-                        );
-                      },
+                    return Shimmer.fromColors(
+                      baseColor: Colors.grey.shade200,
+                      highlightColor: Colors.grey.shade300,
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        height: 75,
-                        padding: const EdgeInsets.all(12),
+                        margin: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
-                          color: Colors.white70,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              spreadRadius: 1,
-                              blurRadius: 2,
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              flex: 4,
-                              child: Row(
-                                children: [
-                                  Image.network(
-                                    data.imageUrl ?? '',
-                                  ),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          data.name ?? '-',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          data.location ?? '-',
-                                          style: const TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.orangeAccent,
-                                    ),
-                                    Text(data.rating ?? '0.0'),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                onTap: () {
-                                  if (data.isFavorite ?? false) {
-                                    restoProvider.removeFavorite(data);
-                                  } else {
-                                    restoProvider.addFavorite(data);
-                                  }
-                                },
-                                child: Icon(
-                                  Icons.favorite,
-                                  color: (data.isFavorite ?? false)
-                                      ? Colors.pink
-                                      : Colors.grey,
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     );
                   },
                 );
               }
-              return Text('Error');
+              if (data.state == ApiStatus.error) {
+                return Text('Error While Getting Data....');
+              }
+              if (data.state == ApiStatus.success) {
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  itemBuilder: (_, index) {
+                    final item = data.data?[index];
+                    return Stack(
+                      alignment: Alignment.topRight,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            provider.selectData(item);
+                            Navigator.pushNamed(context, '/detail');
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.all(8),
+                            alignment: Alignment.bottomLeft,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                image: NetworkImage(item?.image ?? '-'),
+                              ),
+                            ),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              padding: const EdgeInsets.all(4.0),
+                              // height: 75,
+                              decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(.2),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(8.0),
+                                  topRight: Radius.circular(8.0),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    item?.name ?? '-',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: List.generate(item!.rating! ~/ 1,
+                                            (index) => index)
+                                        .map(
+                                          (e) => const Icon(
+                                            Icons.star,
+                                            color: Colors.orangeAccent,
+                                          ),
+                                        )
+                                        .toList(),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            (item.isFavorite ?? false)
+                                ? provider.removeFavorite(item)
+                                : provider.addFavorite(item);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Icon(
+                              (item.isFavorite ?? false)
+                                  ? Icons.favorite_rounded
+                                  : Icons.favorite_border_rounded,
+                              size: 40,
+                              color: Colors.pink,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ).animate().fade();
+                  },
+                );
+              }
+              return const Text('Error');
             }),
           ),
         ),
