@@ -7,6 +7,7 @@ class RestaurantModels {
   String? mapUrl;
   String? phone;
   List<Menu>? menus;
+  bool? isFavorite;
 
   RestaurantModels({
     this.name,
@@ -17,7 +18,10 @@ class RestaurantModels {
     this.mapUrl,
     this.phone,
     this.menus,
+    this.isFavorite,
   });
+
+  set setFavorite(bool value) => isFavorite = value;
 
   factory RestaurantModels.fromJson(Map<String, dynamic> json) =>
       RestaurantModels(
@@ -31,6 +35,7 @@ class RestaurantModels {
         menus: (json["menus"] == null || (json["menus"] as List).isEmpty)
             ? <Menu>[]
             : List<Menu>.from(json["menus"]!.map((x) => Menu.fromJson(x))),
+        isFavorite: false,
       );
 }
 

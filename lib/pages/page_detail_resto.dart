@@ -52,6 +52,12 @@ class _PageRestoDetailState extends State<PageRestoDetail> {
                   );
                 },
               ),
+              Icon(
+                Icons.favorite,
+                color: (restoProv.selectedResto?.isFavorite ?? false)
+                    ? Colors.pink
+                    : Colors.grey,
+              )
             ],
           ),
         ),

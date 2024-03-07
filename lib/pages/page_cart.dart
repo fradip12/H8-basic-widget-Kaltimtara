@@ -13,14 +13,11 @@ class PageCart extends StatelessWidget {
       ),
       body: Consumer<RestoProvider>(
         builder: (_, data, __) {
-          return Column(
-            children: data.cart
-                .map(
-                  (e) => Text(
-                    e.menu.toString(),
-                  ),
-                )
-                .toList(),
+          return ListView.builder(
+            itemCount: data.cart.length,
+            itemBuilder: (_, index) {
+              return Text(data.cart[index].menu ?? '-');
+            },
           );
         },
       ),
