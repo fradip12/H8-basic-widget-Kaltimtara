@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:session_one/controller/resto_provider.dart';
 import 'package:session_one/models/restaurant_models.dart';
 import 'package:session_one/pages/page_detail_resto.dart';
 import 'package:session_one/services/api_services.dart';
@@ -21,11 +23,19 @@ class _PageJSONState extends State<PageJSON> {
 
   @override
   Widget build(BuildContext context) {
+    final restoProvider = Provider.of<RestoProvider>(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Restaurant Apps'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, '/cart'),
+          child: Icon(
+            Icons.shopping_bag,
+            color: Colors.black,
+          ),
         ),
         body: Center(
           child: FutureBuilder<List<RestaurantModels>>(
@@ -41,11 +51,12 @@ class _PageJSONState extends State<PageJSON> {
                     final data = snapshot.data?[index];
                     return GestureDetector(
                       onTap: () {
+                        ///  Publisher Action
+                        restoProvider.selectResto(data!);
                         // Codes untuk Navigate ke pages baru
                         Navigator.pushNamed(
                           context,
                           '/detail',
-                          arguments: data,
                         );
                       },
                       child: Padding(
