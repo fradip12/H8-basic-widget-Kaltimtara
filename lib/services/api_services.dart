@@ -42,4 +42,18 @@ class ApiServices {
     final extractedData = json.decode(response.body);
     return extractedData['JWT'];
   }
+
+  static Future<bool> rootApi(String token) async {
+    print('root API Check');
+    const String url =
+        'https://tiara.bankaltimtara.co.id/api/api/view/api_user/bambang?table=api_user&key=bambang';
+    final response = await http
+        .get(Uri.parse(url), headers: {'X-Authorization': 'Bearer $token'});
+    print('response root api');
+    print(response);
+    if (response.statusCode == 200) {
+      return true;
+    }
+    return false;
+  }
 }

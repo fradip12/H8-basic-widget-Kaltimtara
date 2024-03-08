@@ -36,6 +36,7 @@ dependencies:
   http: ^1.2.0
   mobile_scanner: ^3.5.7
   provider: ^6.1.2
+  shared_preferences: ^2.2.2
   shimmer: ^3.0.0
 
 dev_dependencies:

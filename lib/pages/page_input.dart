@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:session_one/controller/login_controller.dart';
 import 'package:session_one/services/api_services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PageInput extends StatefulWidget {
   const PageInput({super.key});
@@ -94,6 +95,7 @@ class _PageInputState extends State<PageInput> {
                     username: usernameController.text,
                     password: passwordController.text,
                   );
+                  Navigator.pushNamed(context, '/homepage');
                 },
                 child: const Text('Login'),
               )
