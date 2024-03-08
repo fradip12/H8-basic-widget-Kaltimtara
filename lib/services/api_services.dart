@@ -27,3 +27,19 @@ Future<List<RecipesModel>> getRecipes() async {
   final data = extractedData.map((e) => RecipesModel.fromJson(e)).toList();
   return data;
 }
+
+class ApiServices {
+  // Agar instance API Services tidak di create ulang
+  const ApiServices._(); // Singleton
+  //
+  static Future<String> login({
+    required String username,
+    required String password,
+  }) async {
+    String url =
+        'https://tiara.bankaltimtara.co.id/api/api/login?username=$username&password=$password';
+    final response = await http.get(Uri.parse(url));
+    final extractedData = json.decode(response.body);
+    return extractedData['JWT'];
+  }
+}
