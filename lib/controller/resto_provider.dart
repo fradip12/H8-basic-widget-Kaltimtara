@@ -18,7 +18,7 @@ class RestoProvider extends ChangeNotifier {
     notifyListeners();
 
     // Simulation Delay
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     // Get restaurant
     getDataRestaurant().then((value) {
@@ -28,11 +28,7 @@ class RestoProvider extends ChangeNotifier {
       notifyListeners(); // Wajib Listener
     });
 
-    getDataRestaurant()
-        .then((value) => state = ApiStatus.success)
-        .catchError((err) {
-      state = ApiStatus.error;
-    });
+    getDataRestaurant().then((value) => state = ApiStatus.success);
   }
 
   // Action untuk select resto

@@ -9,7 +9,7 @@ class PageCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Keranjang'),
+        title: const Text('Keranjang'),
       ),
       body: Consumer<RestoProvider>(
         builder: (_, data, __) {

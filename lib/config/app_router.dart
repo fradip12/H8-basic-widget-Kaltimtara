@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:session_one/models/restaurant_models.dart';
 import 'package:session_one/pages/page_cart.dart';
 import 'package:session_one/pages/page_detail_resto.dart';
 import 'package:session_one/pages/page_input.dart';
@@ -13,16 +12,16 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const SplashScreen());
       case '/detail':
         return MaterialPageRoute(
-          builder: (context) => PageRestoDetail(
+          builder: (context) => const PageRestoDetail(
               // arguments: route.arguments as RestaurantModels,
               ),
         );
       case '/login':
-        return MaterialPageRoute(builder: (context) => PageInput());
+        return MaterialPageRoute(builder: (context) => const PageInput());
       case '/homepage':
-        return MaterialPageRoute(builder: (context) => PageJSON());
+        return MaterialPageRoute(builder: (context) => const PageJSON());
       case '/cart':
-        return MaterialPageRoute(builder: (context) => PageCart());
+        return MaterialPageRoute(builder: (context) => const PageCart());
       default:
         return MaterialPageRoute(builder: (context) => Container());
     }

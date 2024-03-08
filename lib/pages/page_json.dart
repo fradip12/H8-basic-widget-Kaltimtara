@@ -27,7 +27,7 @@ class _PageJSONState extends State<PageJSON> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Restaurant Apps'),
+          title: const Text('Restaurant Apps'),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.pushNamed(context, '/cart'),
@@ -61,7 +61,7 @@ class _PageJSONState extends State<PageJSON> {
                 );
               }
               if (data.state == ApiStatus.error) {
-                return Text('Error While Getting Data....');
+                return const Text('Error While Getting Data....');
               }
               if (data.state == ApiStatus.success) {
                 return GridView.builder(

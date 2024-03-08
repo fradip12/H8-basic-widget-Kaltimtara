@@ -12,7 +12,7 @@ class PageRestoDetail extends StatefulWidget {
 class _PageRestoDetailState extends State<PageRestoDetail> {
   @override
   Widget build(BuildContext context) {
-    final prov = Provider.of<RecipesProvider>(context);
+    // final prov = Provider.of<RecipesProvider>(context);
     return Consumer<RecipesProvider>(
       builder: (_, data, __) {
         return Scaffold(
@@ -26,7 +26,7 @@ class _PageRestoDetailState extends State<PageRestoDetail> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     data.selectedData?.name ?? '-',
-                    style: TextStyle(color: Colors.black54),
+                    style: const TextStyle(color: Colors.black54),
                   ),
                   background: Image.network(
                     data.selectedData?.image ?? '',

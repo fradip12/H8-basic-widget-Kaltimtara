@@ -7,8 +7,8 @@ class PageGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 300),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 300),
         itemBuilder: (_, index) {
           return Container(
             margin: const EdgeInsets.all(8.0),

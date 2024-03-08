@@ -13,10 +13,10 @@ class PageList extends StatelessWidget {
         itemBuilder: (_, index) {
           return ListTile(
             tileColor: Colors.green[index * 100],
-            title: Text('ini Title'),
-            subtitle: Text('ini Sub title'),
-            leading: Icon(Icons.favorite),
-            trailing: Icon(Icons.star),
+            title: const Text('ini Title'),
+            subtitle: const Text('ini Sub title'),
+            leading: const Icon(Icons.favorite),
+            trailing: const Icon(Icons.star),
           );
         },
       ),

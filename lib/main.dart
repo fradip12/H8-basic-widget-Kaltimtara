@@ -6,10 +6,6 @@ import 'package:session_one/controller/login_controller.dart';
 import 'package:session_one/controller/qr_controller.dart';
 import 'package:session_one/controller/recipes_controller.dart';
 import 'package:session_one/controller/resto_provider.dart';
-import 'package:session_one/pages/page_detail_resto.dart';
-import 'package:session_one/pages/page_input.dart';
-import 'package:session_one/pages/page_json.dart';
-import 'package:session_one/pages/pages_qr_codes.dart';
 
 void main() {
   runApp(const MyApp());

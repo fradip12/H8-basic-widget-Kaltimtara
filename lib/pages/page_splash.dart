@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:session_one/services/api_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

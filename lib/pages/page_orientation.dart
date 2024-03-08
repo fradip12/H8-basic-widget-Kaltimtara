@@ -38,7 +38,7 @@ class _PageOrientationState extends State<PageOrientation> {
                   ]);
                 }
               },
-              child: Text('Change Orientation'),
+              child: const Text('Change Orientation'),
             ),
           );
         },

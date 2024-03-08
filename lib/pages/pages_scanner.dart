@@ -33,10 +33,10 @@ class _ScannerCamState extends State<ScannerCam> {
               builder: (context, value, child) {
                 switch (value) {
                   case TorchState.off:
-                    return Icon(Icons.flash_off);
+                    return const Icon(Icons.flash_off);
 
                   case TorchState.on:
-                    return Icon(Icons.flash_on);
+                    return const Icon(Icons.flash_on);
                   default:
                     return Container();
                 }
