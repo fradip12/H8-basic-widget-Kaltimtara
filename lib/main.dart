@@ -6,6 +6,7 @@ import 'package:session_one/controller/login_controller.dart';
 import 'package:session_one/controller/qr_controller.dart';
 import 'package:session_one/controller/recipes_controller.dart';
 import 'package:session_one/controller/resto_provider.dart';
+import 'package:session_one/pages/page_nfc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,26 +22,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint('');
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => RestoProvider()),
-        ChangeNotifierProvider(create: (context) => RecipesProvider()),
-        ChangeNotifierProvider(create: (context) => QRProvider()),
-        ChangeNotifierProvider(create: (context) => LoginProvider()),
-
-        // ChangeNotifierProvider(create: (context) => RestoProvider()),
-        // etc. provider
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: '/',
-        // home: const PageInput(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      // onGenerateRoute: AppRouter.onGenerateRoute,
+      // initialRoute: '/',
+      home: const PageNFC(),
     );
   }
 }
